@@ -9,7 +9,12 @@ public class UIManager : MonoBehaviour
     // 0. 공용으로 활용
     public void GoMainScene()
     {
-        SceneManager.LoadScene("Mainscene");
+        SceneManager.LoadScene("MainScene");
+    }
+
+    public void GoFormationScene()
+    {
+        SceneManager.LoadScene("FormationScene");
     }
 
     // 1. 메인 씬에서 활용

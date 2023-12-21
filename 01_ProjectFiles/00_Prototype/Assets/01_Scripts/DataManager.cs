@@ -9,6 +9,8 @@ public class DataManager : Singleton<DataManager>
     public float stageNum;
     public int killCount;
 
+    public string[] formation = new string[3];
+
     private void Start()
     {
         Time.timeScale = 1f;

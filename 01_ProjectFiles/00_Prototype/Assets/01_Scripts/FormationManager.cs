@@ -7,8 +7,21 @@ using UnityEngine.EventSystems;
 public class FormationManager : MonoBehaviour
 {
     public GameObject selectUI;
+    string[] formationSave = new string[3];
     [SerializeField]
     GameObject selectSlot;
+    Image btnImage;
+    DataManager dataManager;
+
+    private void Start()
+    {
+        switch (dataManager.formation[0])
+        {
+            case "A" :
+                selectSlot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Portrait/A");
+                break;
+        }
+    }
 
     public void EmptySlotClicked()
     {
@@ -16,12 +29,16 @@ public class FormationManager : MonoBehaviour
         switch (selectSlot.name)
         {
             case "CharSlotA" :
-                selectUI.SetActive(true);
+                dataManager.formation[0] = "A";
+                selectSlot.GetComponent<Image>().sprite = Resources.Load<Sprite>("Portrait/A");
+                //selectUI.SetActive(true);
                 break;
             case "CharSlotB":
+                btnImage = selectSlot.GetComponent<Image>();
                 selectUI.SetActive(true);
                 break;
             case "CharSlotC":
+                btnImage = selectSlot.GetComponent<Image>();
                 selectUI.SetActive(true);
                 break;
         }
